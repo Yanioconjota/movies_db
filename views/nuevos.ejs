@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <p>Bienvenidos a: <%= title %></p>
+  <% for(movie of movies) { %>
+  <p>
+    <a href="/detalle/<%=movie.id%>"><%= movie.title %> (<%= movie.release_date %>)</a>
+  </p>
+  <% } %>
+  <a href="/">Volver</a>
+</body>
+
+</html>

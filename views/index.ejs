@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Bienvenidos a: <%= title %></p>
+    <% for(movie of movies) { %>
+    <p>
+      <a href="/detalle/<%=movie.id%>"><%= movie.title %> (<%= movie.rating %>)</a>
+    </p>
+    <% } %>
+    <br>
+    <% for(var i=0; i <= total/5+1; i++) { %>
+    | <a href="/<%= i%>"><%= i%></a> |
+    <% } %>
+    <p>
+      <a href="/news">Nuevos</a>
+    </p>
+  </body>
+</html>

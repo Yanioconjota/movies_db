@@ -3,9 +3,9 @@ var router = express.Router();
 const indexController = require('../controllers/indexController');
 const { route } = require('./users');
 /* GET home page. */
-router.get('/', indexController.index);
-router.get('/:pag?', indexController.detalle);
+// router.get('/', indexController.index);
 router.get('/detalle/:id', indexController.detalle);
-router.get('/news', indexController.nuevos);
+router.get('/nuevos', indexController.nuevos);
+router.get('/:pag?', indexController.index);
 
 module.exports = router;

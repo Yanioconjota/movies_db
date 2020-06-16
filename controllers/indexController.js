@@ -19,12 +19,6 @@ const indexController = {
     });
   },
   detalle: async (req, res) => {
-    // db.Movie.findOne({
-    //   where: { id: req.params.id }
-    // }).then((movie)=> {
-    //   console.log(movie);
-    //   res.send('OK');
-    // });
     const movie = await db.Movie.findByPk(req.params.id);
     res.render('detalle', {
       movie: movie

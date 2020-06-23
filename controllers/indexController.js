@@ -36,6 +36,39 @@ const indexController = {
       title: 'Las mas nuevas',
       movies: movies
     });
+  },
+  store: async (req, res) => {
+    await db.Movie.create({
+      title: req.body.titulo,
+      length: req.body.duracion,
+      rating: req.body.rating,
+      awards: req.body.premios,
+      release_date: req.body.lanzamiento
+    });
+
+    res.redirect('/');
+  },
+  update: async (req, res) => {
+    await db.Movie.update({
+      title: req.body.titulo,
+      length: req.body.duracion,
+      rating: req.body.rating,
+      awards: req.body.premios,
+      release_date: req.body.lanzamiento
+    }, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.redirect('/detalle/' + req.params.id);
+  },
+  delete: async (req, res) => {
+    await db.Movie.destroy({
+        where: {
+        id: req.params.id
+      }
+    });
+    res.redirect('/');
   }
 }
 

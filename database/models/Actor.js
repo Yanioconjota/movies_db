@@ -1,4 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
+  const alias = 'Actor';
   const cols = {
     id: {
       type: dataTypes.INTEGER,
@@ -17,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
     tableName: 'Actors',
     timestamps: false
   }
-  const Actor = sequelize.define('Actor', cols, config);
+  const Actor = sequelize.define(alias, cols, config);
 
   Actor.associate = (models) => {
     Actor.belongsToMany(models.Movie, {

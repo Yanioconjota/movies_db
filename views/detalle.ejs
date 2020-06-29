@@ -11,6 +11,24 @@
   <p>Premios: <%= movie.awards %></p>
   <p>Rating: <%= movie.rating %></p>
   <p>Duración: <%= movie.length %> minutos</p>
+  <% if (movie.genres) { %>
+    <p>Género: <%= movie.genres.name %></p>
+  <% } else { %>
+    <p>No tiene género</p>
+  <% } %>
+  <ul>
+    <% for (actor of movie.actors){ %>
+      <li><%= actor.first_name %> <%= actor.last_name %></li>
+    <% } %>
+  </ul>
+  
+  <a href="/editar/<%= movie.id %>">
+    <button>Editar</button>
+  </a>
+  <form action="/borrar/<%= movie.id %>" method="POST">
+    <button type="submit">Borrar película</button>
+  </form>
+
   <a href="/">Volver</a>
 </body>
 

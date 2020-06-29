@@ -1,4 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
+  const alias = 'Genre';
   const cols = {
     id: {
       type: dataTypes.INTEGER,
@@ -15,8 +16,7 @@ module.exports = (sequelize, dataTypes) => {
     timestamps: false
   }
 
-  const Genre = sequelize.define('Genre', cols, config);
-  
+  const Genre = sequelize.define(alias, cols, config);
 
   Genre.associate = (models) => {
     Genre.hasMany(models.Movie, {

@@ -32,6 +32,8 @@ const indexController = {
           {association: 'actors'}
         ]
       });
+      console.log(movie);
+      
       res.render('detalle', {
         movie: movie
       });
